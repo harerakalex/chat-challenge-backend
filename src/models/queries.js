@@ -5,17 +5,6 @@ class HandleDBQuery {
     return pool.query(query);
   }
 
-  async selectAll(table) {
-    const result = await this.executeQuery(`SELECT * FROM ${table};`);
-    return result;
-  }
-
-  async selectById(table, id) {
-    const query = `SELECT * FROM ${table} WHERE id='${id}';`;
-    const result = await this.executeQuery(query);
-    return result;
-  }
-
   async selectByColumn(table, column, value) {
     const query = `SELECT * FROM ${table} WHERE ${column}='${value}';`;
     const result = await this.executeQuery(query);
@@ -23,8 +12,7 @@ class HandleDBQuery {
   }
 
   async createUser(data) {
-    const result = await this
-      .executeQuery(`INSERT INTO users(username,password,created_at) VALUES(
+    const result = await this.executeQuery(`INSERT INTO users(username,password,created_at) VALUES(
         '${data.username}',
         '${data.password}',
         '${data.created_at}'
@@ -45,6 +33,12 @@ class HandleDBQuery {
     `);
 
     return result.rows[0];
+  }
+
+  async getUserMessages(userId) {
+    const query = `SELECT * FROM messages WHERE senderId='${userId}' ORDER BY id DESC;`;
+    const result = await this.executeQuery(query);
+    return result.rows;
   }
 }
 

@@ -60,4 +60,16 @@ describe('MessageController', () => {
 
     expect(res.status).toBe(STATUS_CODES.NOT_FOUND);
   });
+
+  it('Get user message', async () => {
+    const res = await supertest(server).get('/message').set('Authorization', token);
+
+    expect(res.status).toBe(STATUS_CODES.OK);
+  });
+
+  it('should not get messages if user not autholized', async () => {
+    const res = await supertest(server).get('/message').set('Authorization', '');
+
+    expect(res.status).toBe(STATUS_CODES.UNAUTHORIZED);
+  });
 });

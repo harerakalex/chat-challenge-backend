@@ -23,6 +23,11 @@ const routes = [
     path: '/message',
     handler: MessageController.sendMessage,
   },
+  {
+    method: 'GET',
+    path: '/message',
+    handler: MessageController.getUserMessages,
+  },
   // {
   //     method: 'GET',
   //     path: /\/employee\/([0-9a-z]+)/,

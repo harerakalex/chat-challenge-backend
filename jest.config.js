@@ -5,6 +5,7 @@ module.exports = {
     './src/index.js',
     './src/router.js',
     '.src/routes.js',
+    '.src/helpers/template/*',
   ],
   testRegex: '(/tests/.*|(\\.|/)(test|spec))\\.js?$',
   moduleFileExtensions: ['js', 'json', 'node'],
