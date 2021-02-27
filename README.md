@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/harerakalex/ossix-backend-chat-challenge.svg?branch=main)](https://travis-ci.org/harerakalex/ossix-backend-chat-challenge)
 
+[![Coverage Status](https://coveralls.io/repos/github/harerakalex/ossix-backend-chat-challenge/badge.svg?branch=main)](https://coveralls.io/github/harerakalex/ossix-backend-chat-challenge?branch=main)
+
 Simple one on one chat application
 
 ### link for the app
