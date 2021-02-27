@@ -1,0 +1,47 @@
+{
+  "name": "ossix-backend-chat-challenge",
+  "version": "1.0.0",
+  "description": "chat application",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test npm run droptablesTests && NODE_ENV=test npm run createTablesTests && NODE_ENV=test jest --coverage --logHeapUsage --runInBand --no-cache --detectOpenHandles --forceExit",
+    "dev": "nodemon",
+    "start": "NODE_ENV=production npm run createTablesProduction && babel-node src/server.js",
+    "createTablesTests": "NODE_ENV=test node --require @babel/register ./src/models/createTables.js",
+    "droptablesTests": "NODE_ENV=test node --require @babel/register ./src/models/dropTables.js",
+    "createTables": "NODE_ENV=development node  --require @babel/register ./src/models/createTables.js",
+    "createTablesProduction": "NODE_ENV=production node  --require @babel/register ./src/models/createTables.js",
+    "dropTables": "NODE_ENV=development node --require @babel/register ./src/models/dropTables.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harerakalex/ossix-backend-chat-challenge.git"
+  },
+  "keywords": [
+    "chati"
+  ],
+  "author": "harerakalex",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harerakalex/ossix-backend-chat-challenge/issues"
+  },
+  "homepage": "https://github.com/harerakalex/ossix-backend-chat-challenge#readme",
+  "dependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.13.1",
+    "@babel/node": "^7.13.0",
+    "@babel/plugin-transform-runtime": "^7.13.7",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.13.5",
+    "@babel/register": "^7.13.0",
+    "bcrypt": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "jest": "^26.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.5.1",
+    "supertest": "^6.1.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
