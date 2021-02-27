@@ -7,6 +7,7 @@
     "test": "NODE_ENV=test npm run droptablesTests && NODE_ENV=test npm run createTablesTests && NODE_ENV=test jest --coverage --logHeapUsage --runInBand --no-cache --detectOpenHandles --forceExit",
     "dev": "nodemon",
     "start": "NODE_ENV=production npm run createTablesProduction && babel-node src/server.js",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "createTablesTests": "NODE_ENV=test node --require @babel/register ./src/models/createTables.js",
     "droptablesTests": "NODE_ENV=test node --require @babel/register ./src/models/dropTables.js",
     "createTables": "NODE_ENV=development node  --require @babel/register ./src/models/createTables.js",
