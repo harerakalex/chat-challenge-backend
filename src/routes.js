@@ -28,6 +28,11 @@ const routes = [
     path: '/message',
     handler: MessageController.getUserMessages,
   },
+  {
+    method: 'GET',
+    path: '/users',
+    handler: AuthController.getAllUser,
+  },
 ];
 
 export { routes };

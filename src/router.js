@@ -2,6 +2,12 @@ import * as helpers from './helpers';
 import { STATUS_CODES, STATUS } from './constants';
 
 const router = async (req, res, routes) => {
+  // Handle cors
+  if (req.method === 'OPTIONS') {
+    res.writeHead(200);
+    res.end();
+    return;
+  }
   // Find a matching route
   const route = routes.find((route) => {
     const methodMatch = route.method === req.method;

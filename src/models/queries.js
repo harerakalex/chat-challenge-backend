@@ -5,6 +5,11 @@ class HandleDBQuery {
     return pool.query(query);
   }
 
+  async selectAll(table) {
+    const query = `SELECT * FROM ${table}`;
+    const result = await this.executeQuery(query);
+    return result.rows;
+  }
   async selectByColumn(table, column, value) {
     const query = `SELECT * FROM ${table} WHERE ${column}='${value}';`;
     const result = await this.executeQuery(query);
@@ -36,7 +41,7 @@ class HandleDBQuery {
   }
 
   async getUserMessages(userId) {
-    const query = `SELECT * FROM messages WHERE senderId='${userId}' ORDER BY id DESC;`;
+    const query = `SELECT * FROM messages WHERE senderId='${userId}' OR receiverId=${userId} ORDER BY id DESC;`;
     const result = await this.executeQuery(query);
     return result.rows;
   }

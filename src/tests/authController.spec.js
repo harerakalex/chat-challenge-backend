@@ -90,4 +90,12 @@ describe('AuthController', () => {
       expect(res.status).toBe(STATUS_CODES.SERVER_ERROR);
     });
   });
+
+  describe('Get all users', () => {
+    it('should get all users', async () => {
+      const res = await supertest(server).get('/users');
+
+      expect(res.status).toBe(STATUS_CODES.OK);
+    });
+  });
 });

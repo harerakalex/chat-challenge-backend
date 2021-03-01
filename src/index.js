@@ -11,7 +11,17 @@ process.on('uncaughtException', function (err) {
 });
 
 const server = http.createServer(async (req, res) => {
+  await cors(res);
   await router(req, res, routes);
 });
+
+const cors = async (res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Request-Method', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST');
+  res.setHeader('Access-Control-Allow-Headers', '*');
+
+  return true;
+};
 
 export { server };

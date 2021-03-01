@@ -62,6 +62,13 @@ class AuthController {
       return helpers.error(res, error.message);
     }
   }
+
+  async getAllUser(req, res) {
+    const users = await Query.selectAll(TABLES.USERS);
+    const message = 'Users fetched successfully';
+
+    return helpers.success(res, STATUS_CODES.OK, STATUS.SUCCESS, message, users);
+  }
 }
 
 export default new AuthController();
